@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Dispatch, SetStateAction } from "react";
 import { Phone, ChevronDown, Search } from "lucide-react";
+import { useEnquiry } from "@/src/context/EnquiryContext";
 
-type NavbarProps = {
-  setOpen: Dispatch<SetStateAction<boolean>>;
-};
 
-export default function Navbar({ setOpen }: NavbarProps) {
+export default function Navbar() {
+  const{ openEnquiry }=useEnquiry();
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
 
@@ -37,7 +35,6 @@ export default function Navbar({ setOpen }: NavbarProps) {
             </span>
           </Link>
 
-          {/* SEARCH */}
           <div className="hidden md:flex items-center w-[300px]">
             <div className="flex items-center gap-2 w-full border rounded-full px-4 py-2 text-gray-600">
               <Search size={18} />
@@ -49,7 +46,6 @@ export default function Navbar({ setOpen }: NavbarProps) {
             </div>
           </div>
 
-          {/* RIGHT ACTIONS */}
           <div className="flex items-center gap-6">
             <div className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-700">
               <Phone size={16} />
@@ -95,7 +91,7 @@ export default function Navbar({ setOpen }: NavbarProps) {
 
           {/* ENQUIRE BUTTON */}
           <button
-            onClick={() => setOpen(true)}
+            onClick={openEnquiry}
             className="ml-auto bg-green-700 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-green-800 transition"
           >
             Enquire

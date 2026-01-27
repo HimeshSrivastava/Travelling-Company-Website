@@ -1,9 +1,10 @@
 "use client";
 
+import {useEnquiry} from "@/src/context/EnquiryContext";
 import { useState } from "react";
-import emailjs from "emailjs-com";
 
-export default function EnquiryModal({ open, setOpen }: any) {
+export default function EnquiryModal() {
+  const { isOpen, closeEnquiry } = useEnquiry()
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -19,37 +20,16 @@ export default function EnquiryModal({ open, setOpen }: any) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    emailjs
-      .send(
-        "service_m0q3r73",
-        "template_p1faomm",     
-        {
-          from_name: form.name,
-          from_email: form.email,
-          contact: form.contact,
-          message: form.message,
-        },
-        "tq3pD5CiU8BdYA4ao"      // 🔴 replace with real one
-      )
-      .then(() => {
-        alert("Enquiry sent successfully!");
-        setOpen(false);
-      })
-      .catch((error) => {
-        console.error("EmailJS error:", error);
-        console.log(form);
-        alert("Failed to send enquiry");
-      });
+    console.log(form);
   };
 
-  if (!open) return null;
+  if (!isOpen) return null  
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg w-full max-w-md relative">
         <button
-          onClick={() => setOpen(false)}
+          onClick={closeEnquiry}
           className="absolute top-3 right-3 text-xl text-black"
         >
           ×

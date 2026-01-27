@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import ClientLayout from "./ClientLayout";
 import { Inter } from "next/font/google";
+import { EnquiryProvider } from "@/src/context/EnquiryContext";
+import Navbar from "@/src/components/layout/Navbar";
+import Footer from "@/src/components/layout/Footer";
+import EnquiryModal from "@/src/components/common/EnquiryModal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,8 +38,14 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} font-sans antialiased flex flex-col min-h-screen`}
-      >
-        <ClientLayout>{children}</ClientLayout>
+       >
+
+        <EnquiryProvider>
+        <Navbar/>
+        <EnquiryModal />
+        <main className="flex-1">{children}</main>
+        <Footer/>
+        </EnquiryProvider>
       </body>
     </html>
   );
