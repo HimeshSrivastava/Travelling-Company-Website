@@ -1,11 +1,9 @@
 "use client"
 
-import CategoryCards from "@/src/components/home/CategoryCards";
-import WhyBookWithUs from "@/src/components/home/WhyBookWithUs";
-import StatsSection from "@/src/components/home/StatsSection";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import ImageSlider from "@/src/components/home/ImageSlider";
+import CategoryCards from "@/home/CategoryCards";
+import WhyBookWithUs from "@/home/WhyBookWithUs";
+import StatsSection from "@/home/StatsSection";
+import ImageSlider from "@/home/ImageSlider";
 import {
   ShieldCheck,
   Wallet,
@@ -18,10 +16,10 @@ import {
   BadgePercent,
   HandMetal,
 } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import SearchBar from "@/src/components/home/SearchBar";
-import TrustStrip from "@/src/components/home/TrustStrip";
+import SearchBar from "@/home/SearchBar";
+import TrustStrip from "@/home/TrustStrip";
+import Booking from "@/common/BookingPage";
+import ServicesSection from "@/home/ServicesSection";
 
 interface Category {
   id: string;
@@ -65,50 +63,7 @@ const categories = [
     href: "/services/LocalDelhi/NCR",
   },
 ];
-const fleet = [
-  {
-    id: "tours",
-    title: "Luxurious Bus",
-    description: "",
-    image: "/images/mb1.jpeg",
-    href: "",
-  },
-  {
-    id: "attractions",
-    title: "Eritiga-2",
-    description: "",
-    image: "/images/ERITIGA-2.jpg",
-    href: "",
-  },
-  {
-    id: "experiences",
-    title: "Xcent",
-    description: "",
-    image: "/images/Xcent.jpg",
-    href: "",
-  },
-  {
-    id: "day-trips",
-    title: "Innova",
-    description: "",
-    image: "/images/innova.jpg",
-    href: "",
-  },
-  {
-    id: "days",
-    title: "Swift",
-    description: "",
-    image: "/images/swift1.jpg",
-    href: "",
-  },
-  {
-    id: "day",
-    title: "Wagonr",
-    description: "",
-    image: "/images/wagonr-png.png",
-    href: "",
-  },
-];
+
 
 const features = [
   {
@@ -166,59 +121,6 @@ const reasons = [
 ];
 
 export default function Home() {
-  const router = useRouter();
-  const [tripType, setTripType] = useState<"oneway" | "round">("oneway");
-
-  const loadRazorpay = () => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/checkout.js";
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
-  };
-  
-  const handlePayment = async (e: React.FormEvent) => {
-    e.preventDefault();
-  
-    const res = await loadRazorpay();
-    if (!res) {
-      alert("Razorpay SDK failed to load");
-      return;
-    }
-  
-    // Create order
-    const orderRes = await fetch("/api/create-order", {
-      method: "POST",
-    });
-  
-    const order = await orderRes.json();
-  
-    const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-      amount: order.amount,
-      currency: order.currency,
-      name: "Tourist Website",
-      description: "Ride Booking Payment",
-      order_id: order.id,
-      handler: function (response: any) {
-        alert("Payment Successful!");
-        console.log(response);
-        router.push("/"); // redirect after payment
-      },
-      prefill: {
-        name: "Customer Name",
-        contact: "9999999999",
-      },
-      theme: {
-        color: "#000000",
-      },
-    };
-  
-    const rzp = new (window as any).Razorpay(options);
-    rzp.open();
-  };
 
   return (
     <div className="w-full">
@@ -239,142 +141,9 @@ export default function Home() {
         </div>
       </section>
       <TrustStrip/>
-      <section className="bg-white py-20">
-      <div className="max-w-7xl mx-auto px-6" >
-        {/* Heading */}
-        <h2 className="text-4xl font-semibold text-gray-900 mb-12">
-          Book Your Ride
-        </h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* LEFT – FORM */}
-          <div className="bg-white shadow-lg rounded-lg p-8">
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handlePayment}>
-              <input className=" booking-input text-black" placeholder="Full Name" required/>
-              <input className=" booking-input text-black" type="Number" placeholder="Mobile No." required/>
-
-              <input className=" booking-input text-black" placeholder="Pick-Up Location" required/>
-              <input className=" booking-input text-black" placeholder="Drop-Off Location" required/>
-
-              {/* Trip Type */}
-              <div className="flex items-center gap-10 md:col-span-2 text-sm">
-                <label className="flex items-center gap-2 text-gray-500">
-                  <input
-                    type="radio"
-                    checked={tripType === "oneway"}
-                    onChange={() => setTripType("oneway")}
-                    required
-                  />
-                  One-Way Trip
-                </label>
-
-                <label className="flex items-center gap-2 text-gray-500">
-                  <input
-                    type="radio"
-                    checked={tripType === "round"}
-                    onChange={() => setTripType("round")}
-                    required
-                  />
-                  Round Trip
-                </label>
-              </div>
-
-              <input className=" booking-input text-black" placeholder="Choose Your Ride" required/>
-              <input className=" booking-input text-black"
-                placeholder="No. Of People"
-                type="number"
-                required
-              />
-
-              <div className="md:col-span-2">
-                <label className="block text-sm mb-1 font-medium text-gray-500">
-                  Departure Date
-                </label>
-                <input title="Date" type="date" className="booking-input text-black w-full" required/>
-              </div>
-
-              <div className="md:col-span-2">
-                <label className="block text-sm mb-1 font-medium text-gray-500">
-                  Return Date
-                </label>
-                <input title="Date" type="date" className=" booking-input text-black w-full" required/>
-              </div>
-
-              <div className="md:col-span-2 flex justify-center mt-6">
-                <button
-                  type="submit"
-                  className="bg-black text-white px-10 py-3 rounded-md text-sm font-medium hover:bg-gray-800 transition"
-                >
-                  BOOK NOW
-                </button>
-              </div>
-            </form>
-          </div>
-
-          {/* RIGHT – IMAGE */}
-          <div className="hidden lg:block">
-            <Image
-              src="/images/taxi-service.jpg"   
-              alt="Book Your Ride"
-              width={600}
-              height={450}
-              className="w-full h-auto"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Local styles */}
-      <style jsx>{`
-        .booking-input {
-          width: 100%;
-          background: #f3f3f3;
-          padding: 14px 16px;
-          border-radius: 6px;
-          border: none;
-          font-size: 14px;
-          outline: none;
-        }
-        .booking-input:focus {
-          box-shadow: inset 0 0 0 1px #999;
-          background: #f0f0f0;
-        }
-      `}</style>
-    </section>
-      
-      <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Explore Services
-          </h2>
-        </div>
-
-        <div className="flex gap-6 overflow-x-auto scrollbar-hide py-2">
-  {fleet.map((item) => (
-    <Link
-      key={item.id}
-      href={item.href}
-      className="group min-w-[260px] sm:min-w-[300px] lg:min-w-[280px] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex-shrink-0"
-    >
-      <div className="relative h-48 overflow-hidden">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover group-hover:scale-110 transition-transform duration-300"
-        />
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-      </div>
-    </Link>
-  ))}
-</div>+
-      </div>
-    </section>
-      {/* Category Cards Section */}
+      <Booking/>
+      <ServicesSection/>
       <CategoryCards  />
-
-      {/* Why Book With Us Section */}
       <WhyBookWithUs />
       <section className="bg-[#FEFEE3] py-16 relative">
       <div className="max-w-7xl mx-auto px-4">
@@ -412,8 +181,6 @@ export default function Home() {
         </p>
       </div>
     </section>
-    
-      {/* Stats Section */}
       <StatsSection />
 
     <section className="bg-[#CFE5E3] py-20">

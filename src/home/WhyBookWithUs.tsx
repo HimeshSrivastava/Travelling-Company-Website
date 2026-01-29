@@ -1,3 +1,6 @@
+"use client"
+
+import { CalendarClock, FileCheck, FileX, Headset, ShieldCheck, Wallet } from "lucide-react";
 import React from "react";
 
 interface Feature {
@@ -6,6 +9,7 @@ interface Feature {
   description: string;
   blobColor: string;
 }
+
 
 const WhyBookWithUs: React.FC = () => {
   const features: Feature[] = [
@@ -110,6 +114,7 @@ const WhyBookWithUs: React.FC = () => {
   ];
 
   return (
+    <>
     <section className="py-12 md:py-16 lg:py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
@@ -148,6 +153,8 @@ const WhyBookWithUs: React.FC = () => {
         </div>
       </div>
     </section>
+   
+    </>
   );
 };
 

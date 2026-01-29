@@ -1,6 +1,6 @@
 "use client";
 
-import {useEnquiry} from "@/src/context/EnquiryContext";
+import {useEnquiry} from "@/context/EnquiryContext";
 import { useState } from "react";
 
 export default function EnquiryModal() {

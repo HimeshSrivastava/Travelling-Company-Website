@@ -1,7 +1,6 @@
 "use client"
 
-// import { useState } from 'react'
-import AnimatedConter from '@/src/components/common/AnimatedCounter'
+import AnimatedConter from '@/common/AnimatedCounter'
 
 export default function StatItem({ item, hovered }: any) {
     const Icon = item.icon;

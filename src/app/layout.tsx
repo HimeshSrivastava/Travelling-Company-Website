@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { EnquiryProvider } from "@/src/context/EnquiryContext";
-import Navbar from "@/src/components/layout/Navbar";
-import Footer from "@/src/components/layout/Footer";
-import EnquiryModal from "@/src/components/common/EnquiryModal";
+import { EnquiryProvider } from "../context/EnquiryContext";
+import Navbar from "../layout/Navbar";
+import Footer from "../layout/Footer";
+import EnquiryModal from "@/common/EnquiryModal";
 
 const inter = Inter({
   subsets: ["latin"],

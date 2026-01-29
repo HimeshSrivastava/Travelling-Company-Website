@@ -1,5 +1,5 @@
 "use client";
-import HeroSection from "@/src/components/home/HeroSection";
+import HeroSection from "@/home/HeroSection";
 import Image from "next/image";
 import {
     Bus,
@@ -10,7 +10,8 @@ import {
     Building,
     Mail, Twitter, Facebook
   } from "lucide-react";
-import CategoryCards from "@/src/components/home/CategoryCards";
+import CategoryCards from "@/home/CategoryCards";
+import ImageSlider from "@/home/ImageSlider";
 
 export default function ServicesPage() {
     const services = [
@@ -121,14 +122,12 @@ export default function ServicesPage() {
           OUR SERVICES
         </h2>
 
-        {/* Divider */}
         <div className="flex items-center justify-center gap-4 mt-4 mb-16">
           <span className="h-px w-24 bg-gray-300" />
           <span className="text-gray-300 text-xl">♡</span>
           <span className="h-px w-24 bg-gray-300" />
         </div>
 
-        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16">
           {services.map((service, i) => {
             const Icon = service.icon;
@@ -141,7 +140,6 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                {/* Text */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {service.title}

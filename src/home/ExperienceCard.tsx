@@ -1,7 +1,15 @@
-import { handleBuildComplete } from "next/dist/build/adapter/build-complete";
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export interface Experience {
   id: string;
@@ -41,6 +49,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
       href={href}
       className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full"
     >
+      <Card className="group h-full overflow-hidden transition-all duration-300 hover:shadow-xl">
       {/* Image */}
       <div className="relative h-48 overflow-hidden">
         <Image
@@ -51,14 +60,14 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {duration && (
-          <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+          <Badge className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
             {duration}
-          </div>
+          </Badge>
         )}
       </div>
 
       {/* Content */}
-      <div className="p-4 flex-1 flex flex-col">
+      <CardContent className="p-4 flex-1 flex flex-col">
         {/* Location */}
         {location && (
           <p className="text-sm text-gray-500 mb-1">{location}</p>
@@ -106,7 +115,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
             </span>
             <span className="text-sm text-gray-500 ml-1">per person</span>
           </div>
-          <button
+          <Button
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
@@ -115,9 +124,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-md transition-colors"
           >
             Book Now
-          </button>
+          </Button>
         </div>
-      </div>
+      </CardContent>
+      </Card>
     </Link>
   );
 };

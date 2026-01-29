@@ -3,8 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, ChevronDown, Search } from "lucide-react";
-import { useEnquiry } from "@/src/context/EnquiryContext";
-
+import { useEnquiry } from "@/context/EnquiryContext";
 
 export default function Navbar() {
   const{ openEnquiry }=useEnquiry();
