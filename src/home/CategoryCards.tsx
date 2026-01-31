@@ -42,7 +42,7 @@ const defaultCategories: Category[] = [
     id: "day-trips",
     title: "Local Delhi/NCR",
     description: "",
-    image: "/images/local-delhi-ncr.jpg",
+    image: "/images/large_delhi-tourism.webp",
     href: "/services/LocalDelhi/NCR",
   },
 ];
@@ -78,7 +78,7 @@ const CategoryCards: React.FC<CategoryCardsProps> = ({
                   alt={category.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
               </div>

@@ -22,28 +22,28 @@ const fleet = [
       id: "experiences",
       title: "Xcent",
       description: "",
-      image: "/images/Xcent.jpg",
+      image: "/images/Xcent1.webp",
       href: "",
     },
     {
       id: "day-trips",
       title: "Innova",
       description: "",
-      image: "/images/innova.jpg",
+      image: "/images/innova-crysta.webp",
       href: "",
     },
     {
       id: "days",
       title: "Swift",
       description: "",
-      image: "/images/swift1.jpg",
+      image: "/images/Dzire.webp",
       href: "",
     },
     {
       id: "day",
       title: "Wagonr",
       description: "",
-      image: "/images/wagonr-png.png",
+      image: "/images/wagon.webp",
       href: "",
     },
   ];
@@ -65,14 +65,14 @@ export default function ServicesSection () {
         <Link
         key={item.id}
         href={item.href}
-        className="group min-w-[260px] sm:min-w-[300px] lg:min-w-[280px] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex-shrink-0"
+        className="group min-w-[300px] sm:min-w-[300px] lg:min-w-[430px] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex-shrink-0"
       >
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-50 overflow-hidden">
           <Image
             src={item.image}
             alt={item.title}
             fill
-            className="object-cover aspect-square"
+            className="object-cover aspect-ratio-[1/4]"
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
         </div>

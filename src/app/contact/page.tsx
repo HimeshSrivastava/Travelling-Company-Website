@@ -1,20 +1,29 @@
 "use client";
 
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Facebook, Mail, Twitter } from "lucide-react";
+
 export default function ContactPage() {
   return (
+    <>
     <section className="bg-[#f2f2f0] py-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Title */}
-        <h1 className="text-center text-3xl md:text-4xl font-semibold text-black">
-          Contact Us
-        </h1>
+        <div className="max-w-7xl mx-auto px-6">
+  {/* Heading */}
+  <h2 className="text-center text-4xl font-bold text-gray-700">
+    CONTACT US
+  </h2>
 
-        {/* Divider */}
-        <div className="flex justify-center items-center gap-4 mt-4 mb-10">
-          <span className="w-16 h-px bg-gray-400" />
-          <span className="w-3 h-3 rounded-full border border-red-400" />
-          <span className="w-16 h-px bg-gray-400" />
-        </div>
+  {/* Divider */}
+  <div className="flex items-center justify-center gap-4 mt-4 mb-12">
+    <span className="h-px w-24 bg-gray-300" />
+    <span className="text-red-800 text-xl">♡</span>
+    <span className="h-px w-24 bg-gray-300" />
+  </div>
+
+</div>
 
         {/* Subtitle */}
         <p className="text-center max-w-4xl mx-auto text-gray-700 mb-14">
@@ -28,33 +37,36 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start pt-8">
           {/* LEFT FORM */}
           <form className="space-y-6">
-            <input
+            <Input
               type="text"
               placeholder="Enter your name"
               className="w-full p-4 text-black rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400"
             />
 
-            <input
+            <Input
               type="email"
               placeholder="Enter your Email-id"
               className="w-full p-4 text-black rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400"
             />
 
-            <input
+            <Input
               type="tel"
               placeholder="Enter Your Contact No."
               className="w-full p-4 text-black rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400"
             />
 
-            <select
-              className="w-full p-4 rounded-md border border-gray-300 text-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-400"
-            >
-              <option>Choose Services</option>
-              <option>Tour Packages</option>
-              <option>Cab Services</option>
-              <option>Corporate Travel</option>
-              <option>Hotel Booking</option>
-            </select>
+<Select>
+      <SelectTrigger className="w-full p-4">
+        <SelectValue placeholder="Choose Services" />
+      </SelectTrigger>
+
+      <SelectContent>
+        <SelectItem value="tour">Tour Packages</SelectItem>
+        <SelectItem value="cab">Cab Services</SelectItem>
+        <SelectItem value="corporate">Corporate Travel</SelectItem>
+        <SelectItem value="hotel">Hotel Booking</SelectItem>
+      </SelectContent>
+    </Select>
 
             <textarea
               rows={5}
@@ -82,5 +94,102 @@ export default function ContactPage() {
         </div>
       </div>
     </section>
+
+<section className="bg-white p-24">
+   {/* Content */}
+   <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+    {/* LEFT */}
+    <div>
+      <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+        Chetan Trip Solution
+      </h3>
+
+      <p className="text-gray-600 mb-6 leading-relaxed">
+        C-17/3, Shiv Shakti Apartment, Sector 71,
+        <br />
+        Noida, Uttra Pradesh 201301.
+      </p>
+
+      <p className="text-gray-700 mb-2">
+        <strong>Email :</strong>{" "}
+        <a
+          href="mailto:chetantripsolution@gmail.com"
+          className="text-gray-600"
+        >
+          chetantripsolution@gmail.com
+        </a>
+      </p>
+
+      <p className="text-gray-700 mb-2">
+        <strong>URL :</strong>{" "}
+        <a
+          href="https://www.chetantravels.com/"
+          className="text-gray-600"
+        >
+          https://www.chetantravels.com/
+        </a>
+      </p>
+
+      <p className="text-gray-700 mt-6">
+        <strong>Mobile :</strong>  9911099993, 9818280275
+      </p>
+    </div>
+
+    {/* RIGHT */}
+    <div>
+      <h3 className="text-2xl font-semibold text-gray-900 mb-10">
+        For any Queries or Feedback !
+      </h3>
+
+      <form className="space-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <input
+            type="text"
+            placeholder="Name"
+            className="contact-input text-black"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="contact-input text-black"
+          />
+        </div>
+
+        <textarea
+          placeholder="Message"
+          rows={4}
+          className="contact-input resize-none text-black"
+        />
+
+        <div className="flex items-center gap-4 text-gray-700 cursor-pointer w-fit">
+          <Mail size={22} />
+          <span className="font-medium">Send message</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {/* Social Icons */}
+  <div className="absolute right-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-6 text-gray-300">
+    <Twitter size={20} />
+    <Facebook size={20} />
+  </div>
+{/* Local styles */}
+<style jsx>{`
+  .contact-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #d1d5db;
+    padding: 10px 0;
+    font-size: 15px;
+    outline: none;
+    background: transparent;
+  }
+  .contact-input:focus {
+    border-bottom-color: #10b981;
+  }
+`}</style>
+</section>
+</>
   );
 }

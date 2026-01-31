@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 
 
 export default function BookingPage() {
-    const router = useRouter();
+  const router = useRouter();
   const [tripType, setTripType] = useState<"oneway" | "round">("oneway");
   
   const loadRazorpay = () => {
@@ -28,7 +31,6 @@ export default function BookingPage() {
       return;
     }
   
-    // Create order
     const orderRes = await fetch("/api/create-order", {
       method: "POST",
     });
@@ -65,86 +67,73 @@ export default function BookingPage() {
     <>
     <div className="fixed inset-0 bg-black z-40"></div>
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-      {/* Modal */}
+    
       <div className="bg-white w-full max-w-4xl rounded-lg shadow-xl relative">
-        {/* Header */}
+      
         <div className="flex items-center justify-between px-8 py-5 border-b">
           <h2 className="text-xl font-semibold text-red-600">
             Book Your Ride
           </h2>
-          <button onClick={() => router.push("/")}
-  className="text-2xl font-bold text-red-600 hover:scale-110 transition">×</button>
-        </div>
+          <Button onClick={() => router.push("/")}
+          className="text-2xl font-bold text-red-600 hover:scale-110 transition">×</Button>
+          </div>
 
-        {/* Form */}
+      
         <div className="px-8 py-6">
           <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handlePayment}>
-            {/* Row 1 */}
-            <input className="booking-input text-black" placeholder="Full Name" />
-            <input className="booking-input text-black" placeholder="Mobile No." />
-
-            {/* Row 2 */}
-            <input className="booking-input text-black" placeholder="Pick-Up Location" />
-            <input className="booking-input text-black" placeholder="Drop-Of Location" />
-
-            {/* Trip Type */}
+        
+            <Input className="booking-input text-black" placeholder="Full Name" />
+            <Input className="booking-input text-black" placeholder="Mobile No." />
+            <Input className="booking-input text-black" placeholder="Pick-Up Location" />
+            <Input className="booking-input text-black" placeholder="Drop-Of Location" />
             <div className="flex items-center gap-10 md:col-span-2 text-sm">
-              <label className="flex items-center gap-2 cursor-pointer text-black">
-                <input
+              <Label className="flex items-center gap-2 cursor-pointer text-black">
+                <Input
                   type="radio"
                   checked={tripType === "oneway"}
                   onChange={() => setTripType("oneway")}
                   className="accent-purple-600 text-black"
                 />
                 One-Way Trip
-              </label>
-
-              <label className="flex items-center gap-2 cursor-pointer text-black">
-                <input
+              </Label>
+              <Label className="flex items-center gap-2 cursor-pointer text-black">
+                <Input
                   type="radio"
                   checked={tripType === "round"}
                   onChange={() => setTripType("round")}
                   className="accent-purple-600 text-black"
                 />
                 Round Trip
-              </label>
+              </Label>
             </div>
-
-            {/* Row 3 */}
-            <input className="booking-input text-black" placeholder="Choose Your Ride" />
-            <input
+            <Input className="booking-input text-black" placeholder="Choose Your Ride" />
+            <Input
               className="booking-input text-black"
               placeholder="No. Of People"
               type="number"
             />
-
-            {/* Departure Date */}
             <div className="md:col-span-2">
-              <label className="block text-sm mb-1 text-black">Departure Date</label>
-              <input type="date" className="booking-input w-full text-black" />
+              <Label className="block text-sm mb-1 text-black">Departure Date</Label>
+              <Input type="date" className="booking-input w-full text-black" />
             </div>
-
-            {/* Return Date */}
             <div className="md:col-span-2">
-              <label className="block text-sm mb-1 text-black">Return Date</label>
-              <input type="date" className="booking-input w-full text-black" />
+              <Label className="block text-sm mb-1 text-black">Return Date</Label>
+              <Input type="date" className="booking-input w-full text-black" />
             </div>
-
-            {/* Button */}
             <div className="md:col-span-2 flex justify-center mt-6">
-              <button
+              <Button
                 type="submit"
                 className="bg-black text-white px-14 py-3 rounded-md text-sm font-medium hover:bg-gray-800 transition"
               >
                 BOOK NOW
-              </button>
+              </Button>
             </div>
           </form>
         </div>
       </div>
 
       {/* Local styles matching your globals.css */}
-      <style jsx>{`
+      {/* <style jsx>{`
         .booking-input {
           width: 100%;
           background: #f3f3f3;
@@ -161,7 +150,7 @@ export default function BookingPage() {
           box-shadow: inset 0 0 0 1px #999;
           background: #f0f0f0;
         }
-      `}</style>
+      `}</style> */}
     </div>
     </>
   );
