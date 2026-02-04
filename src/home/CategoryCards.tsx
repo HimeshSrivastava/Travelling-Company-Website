@@ -69,7 +69,7 @@ const CategoryCards: React.FC<CategoryCardsProps> = ({
           {categories.map((category) => (
             <Link
               key={category.id}
-              href={category.href}
+              href="#"
               className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div className="relative h-48 overflow-hidden">
@@ -78,7 +78,6 @@ const CategoryCards: React.FC<CategoryCardsProps> = ({
                   alt={category.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
               </div>

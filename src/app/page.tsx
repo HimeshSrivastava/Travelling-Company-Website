@@ -25,11 +25,11 @@ export default function Home() {
         />
         </div>
         <div className="absolute top-1/2 left-32">
-        <SearchBar/>
+        {/* <SearchBar/> */}
         </div>
       </section>
       <TrustStrip/>
-      <Booking/>
+      {/* <Booking/> */}
       <ServicesSection/>
       <CategoryCards  />
       <WhyBookWithUs />

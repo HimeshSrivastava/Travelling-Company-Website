@@ -1,24 +1,26 @@
 import AvailabilityTable from "@/common/AvailabilityTable";
 import Image from "next/image";
 
-const availabilityData1 =[
-    { serial: 1, model: "Model A", seats: "5 Seater" },
-    { serial: 2, model: "Model B", seats: "3 Seater" },
-    { serial: 3, model: "Model C", seats: "6 Seater" },
-    { serial: 4, model: "Model D", seats: "2 Seater" },
-    { serial: 5, model: "Model E", seats: "4 Seater" },
-    { serial: 6, model: "Model F", seats: "1 Seater" },
+export const availabilityData =[
+  { serial: 1, seats: "7 Seater", fourHr: "1200", eightHr: "2000",twelveHr: "300", kmCharge: "13/km", extraHour: "100/hr" },
 ]
 
-export const availabilityData = [
-    { serial: 1, model: "Model A", seats: "5 Seater" },
-    { serial: 2, model: "Model B", seats: "3 Seater" },
-    { serial: 3, model: "Model C", seats: "6 Seater" },
-    { serial: 4, model: "Model D", seats: "2 Seater" },
-    { serial: 5, model: "Model E", seats: "4 Seater" },
-    { serial: 6, model: "Model F", seats: "1 Seater" },
+
+export const availabilityData1 =[
+    { serial: 1, seats: "7 Seater", fourHr: "1200", eightHr: "2000",twelveHr: "300", kmCharge: "13/km", extraHour: "100/hr" },
   ]
 
+
+export const availabilityData2 = [
+  { serial: 1, seats: "7 Seater", fourHr: "1500", eightHr: "2200",twelveHr: "4800", kmCharge: "16/km", extraHour: "150/hr" },
+  ]
+export const availabilityData4 = [
+  { serial: 1, seats: "6 Seater", fourHr: "NIL", eightHr: "2500",twelveHr: "4500", kmCharge: "18/km", extraHour: "150/hr" },
+  ]
+
+export const availabilityData3 = [
+  { serial: 1, seats: "8 Seater", fourHr: "NIL", eightHr: "3000",twelveHr: "5000", kmCharge: "20/km", extraHour: "200/hr" },
+  ]
 export default function Page() {
     return ( 
         <div className="bg-white">
@@ -36,27 +38,11 @@ export default function Page() {
   </div>
 
 </div>
-<div className="p-28">
-    <AvailabilityTable
-      data={availabilityData}
-      imageSrc="/images/ERITIGA-2.jpg"
-      imageAlt="Bus"
-    />
-
-</div>
 
 <div className="p-28">
-    <AvailabilityTable
-      data={availabilityData}
-      imageSrc="/images/Xcent1.webp"
-      imageAlt="Bus"
-    />
 
-</div>
-
-<div className="p-28">
     <AvailabilityTable
-      data={availabilityData}
+      data={availabilityData3}
       imageSrc="/images/innova-crysta.webp"
       imageAlt="Bus"
     />
@@ -66,24 +52,24 @@ export default function Page() {
 <div className="p-28">
     <AvailabilityTable
       data={availabilityData}
-      imageSrc="/images/ERITIGA-2.jpg"
+      imageSrc="/images/RUMION.jpg"
       imageAlt="Bus"
     />
 
 </div>
 
+<div className="p-28">
+    <AvailabilityTable
+      data={availabilityData}
+      imageSrc="/images/Kia-Carens.webp"
+      imageAlt="Bus"
+    />
+
+</div>
 <div className="p-28">
     <AvailabilityTable
       data={availabilityData}
       imageSrc="/images/Dzire.webp"
-      imageAlt="Bus"
-    />
-
-</div>
-<div className="p-28">
-    <AvailabilityTable
-      data={availabilityData}
-      imageSrc="/images/wagon.webp"
       imageAlt="Bus"
     />
 

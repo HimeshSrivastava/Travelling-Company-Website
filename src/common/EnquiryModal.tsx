@@ -1,5 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {useEnquiry} from "@/context/EnquiryContext";
 import { useState } from "react";
 
@@ -28,17 +31,17 @@ export default function EnquiryModal() {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg w-full max-w-md relative">
-        <button
+        <Button
           onClick={closeEnquiry}
           className="absolute top-3 right-3 text-xl text-black"
         >
           ×
-        </button>
+        </Button>
 
         <h2 className="text-xl font-bold mb-4 text-blue-950">Enquiry Form</h2>
 
         <form onSubmit={handleSubmit} className="space-y-3">
-          <input
+          <Input
             type="text"
             name="name"
             placeholder="Your Name"
@@ -48,7 +51,7 @@ export default function EnquiryModal() {
             className="w-full border p-2 rounded text-black"
           />
 
-          <input
+          <Input
             type="email"
             name="email"
             placeholder="Your Email"
@@ -58,7 +61,7 @@ export default function EnquiryModal() {
             className="w-full border p-2 rounded text-black"
           />
 
-          <input
+          <Input
             type="text"
             name="contact"
             placeholder="Contact Number"
@@ -68,7 +71,7 @@ export default function EnquiryModal() {
             className="w-full border p-2 rounded text-black"
           />
 
-          <textarea
+          <Textarea
             name="message"
             placeholder="Write your message"
             rows={4}
@@ -78,12 +81,12 @@ export default function EnquiryModal() {
             className="w-full border p-2 rounded text-black"
           />
 
-          <button
+          <Button
             type="submit"
             className="w-full bg-black text-white py-2 rounded"
           >
             Send Message
-          </button>
+          </Button>
         </form>
       </div>
     </div>

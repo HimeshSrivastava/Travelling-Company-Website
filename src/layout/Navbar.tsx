@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Phone, ChevronDown, Search } from "lucide-react";
 import { useEnquiry } from "@/context/EnquiryContext";
 import { Button } from "@/components/ui/button";
+import MobileSidebar from "@/common/MobileSidebar";
 
 export default function Navbar() {
   const{ openEnquiry }=useEnquiry();
@@ -13,7 +14,7 @@ export default function Navbar() {
 
       {/* TOP OFFER BAR */}
       <div className="bg-green-700 text-white text-sm font-medium h-8 flex items-center justify-center">
-        Ladakh Spiti Early Bird – Save up to ₹3,000 🎉
+        Special offer for Coperate Client and Services 🎉
       </div>
 
       {/* MAIN NAV */}
@@ -60,7 +61,11 @@ export default function Navbar() {
 
         {/* ROW 2 – MENU */}
         <div className="h-14 flex items-center gap-8 text-sm font-medium text-gray-800">
-
+        <div className="md:hidden">
+         <MobileSidebar />
+        </div>
+        
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-800">
           <Link href="/" className="flex items-center gap-1 cursor-pointer hover:text-green-700">
             👥 Home <ChevronDown size={14} />
           </Link>
@@ -84,6 +89,8 @@ export default function Navbar() {
           <Link href="/contact" className="flex items-center gap-1 cursor-pointer hover:text-green-700">
             ℹ️ Contact us <ChevronDown size={14} />
           </Link>
+
+        </div>
 
           <Button
             onClick={openEnquiry}
