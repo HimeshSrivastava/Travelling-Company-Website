@@ -21,9 +21,26 @@ export default function EnquiryModal() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form);
+    
+    const res = await fetch("/api/send-mail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if(data.success){
+      alert("Message sent successfully!");
+      closeEnquiry();
+      setForm({ name:"", email:"", contact:"", message:""});
+    } else {
+      alert("Failed to send message");
+    }
   };
 
   if (!isOpen) return null  
@@ -33,7 +50,7 @@ export default function EnquiryModal() {
       <div className="bg-white p-6 rounded-lg w-full max-w-md relative">
         <Button
           onClick={closeEnquiry}
-          className="absolute top-3 right-3 text-xl text-black"
+          className="absolute top-3 right-3 text-xl text-black bg-white hover:text-white"
         >
           ×
         </Button>
