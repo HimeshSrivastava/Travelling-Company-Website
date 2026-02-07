@@ -1,13 +1,21 @@
 "use client";
 
+import { Input } from "@/components/ui/input";
+
+interface FloatingInputProps {
+  label: string
+  name: string
+  type?: string
+}
+
 export default function FloatingInput({
   label,
-  type = "text",
   name,
-}) {
+  type = "text",
+}: FloatingInputProps) {
   return (
     <div className="relative w-full">
-      <input
+      <Input
         type={type}
         name={name}
         required
