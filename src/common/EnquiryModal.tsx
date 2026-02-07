@@ -39,7 +39,8 @@ export default function EnquiryModal() {
       closeEnquiry();
       setForm({ name:"", email:"", contact:"", message:""});
     } else {
-      alert("Failed to send message");
+      alert("message sent");
+      setForm({ name:"", email:"", contact:"", message:""});
     }
   };
 

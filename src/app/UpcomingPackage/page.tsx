@@ -17,7 +17,7 @@ const corporateCategories =[
     },
     {
       id: "mathura",
-      title: "mathura",
+      title: "Mathura",
       description: "",
       image: "/images/mathura.jpg",
       href: "",

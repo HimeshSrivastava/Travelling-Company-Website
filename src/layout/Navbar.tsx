@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, ChevronDown, Search } from "lucide-react";
+import { Phone, ChevronDown, MapPin, Plane, ArrowRight } from "lucide-react";
 import { useEnquiry } from "@/context/EnquiryContext";
 import { Button } from "@/components/ui/button";
 import MobileSidebar from "@/common/MobileSidebar";
@@ -32,34 +32,28 @@ export default function Navbar() {
               height={55}
             />
             <span className="text-xl font-semibold text-green-700 leading-tight">
-              Chetan <br /> Trip Solution
+              Chetan <br/> Trip Solution
             </span>
           </Link>
 
           <div className="hidden md:flex items-center w-[300px]">
-            <div className="flex items-center gap-2 w-full border rounded-full px-4 py-2 text-gray-600">
-              <Search size={18} />
-              <input
-                type="text"
-                placeholder="Search your trip..."
-                className="w-full outline-none bg-transparent text-sm"
-              />
-            </div>
+            <Link href="/UpcomingPackage">
+            <button className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:underline">
+             <Plane className="w-4 h-4" />
+              Click here for our India trip
+             <ArrowRight className="w-4 h-4" />
+          </button>
+            </Link>
           </div>
 
           <div className="flex items-center gap-6">
             <div className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-700">
               <Phone size={16} />
-              (+91) 9911099993
+              (+91) 9911099992
             </div>
-
-            <button className="bg-black text-white px-6 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition">
-              Login
-            </button>
           </div>
         </div>
 
-        {/* ROW 2 – MENU */}
         <div className="h-14 flex items-center gap-8 text-sm font-medium text-gray-800">
         <div className="md:hidden">
          <MobileSidebar />
@@ -91,7 +85,6 @@ export default function Navbar() {
           </Link>
 
         </div>
-
           <Button
             onClick={openEnquiry}
             className="ml-auto bg-green-700 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-green-800 transition"

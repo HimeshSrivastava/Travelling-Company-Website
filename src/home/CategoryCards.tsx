@@ -48,7 +48,7 @@ const defaultCategories: Category[] = [
 ];
 
 const CategoryCards: React.FC<CategoryCardsProps> = ({
-  title = "Our Corporate Clients",
+  title = "Our Services",
   subtitle = "Discover amazing activities tailored to your interests",
   categories = defaultCategories,
 }) => {
@@ -82,7 +82,7 @@ const CategoryCards: React.FC<CategoryCardsProps> = ({
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-gray-600 transition-colors">
                   {category.title}
                 </h3>
                 <p className="text-gray-600 text-sm">{category.description}</p>

@@ -1,10 +1,13 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useEnquiry } from "@/context/EnquiryContext";
 import { Facebook, Mail, Twitter } from "lucide-react";
 
 export default function ContactPage() {
+  // const{ openEnquiry }=useEnquiry();
   return (
     <>
     <section className="bg-[#f2f2f0] py-20">
@@ -97,9 +100,9 @@ export default function ContactPage() {
 
 <section className="bg-white p-24">
    {/* Content */}
-   <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+   <div className="grid grid-cols-1 md:grid-cols-2">
     {/* LEFT */}
-    <div>
+    <div >
       <h3 className="text-2xl font-semibold text-gray-900 mb-6">
         Chetan Trip Solution
       </h3>
@@ -163,7 +166,10 @@ export default function ContactPage() {
 
         <div className="flex items-center gap-4 text-gray-700 cursor-pointer w-fit">
           <Mail size={22} />
+          {/* <Button
+            onClick={openEnquiry} > */}
           <span className="font-medium">Send message</span>
+          {/* </Button> */}
         </div>
       </form>
     </div>
