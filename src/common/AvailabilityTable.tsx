@@ -28,7 +28,7 @@ interface AvailabilityTableProps {
 }
 
 export default function AvailabilityTable({
-  title = "PRIZING",
+  title = "PRICEING",
   imageSrc,
   imageAlt = "vehicle",
   data,
