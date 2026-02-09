@@ -1,9 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useEnquiry } from "@/context/EnquiryContext";
 import { Facebook, Mail, Twitter } from "lucide-react";
 
 export default function ContactPage() {
@@ -99,6 +97,7 @@ export default function ContactPage() {
     </section>
 
 <section className="bg-white p-24">
+  <div className="max-w-7xl mx-auto px-6">
    {/* Content */}
    <div className="grid grid-cols-1 md:grid-cols-2">
     {/* LEFT */}
@@ -195,6 +194,7 @@ export default function ContactPage() {
     border-bottom-color: #10b981;
   }
 `}</style>
+  </div>
 </section>
 </>
   );

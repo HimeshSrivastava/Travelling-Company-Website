@@ -1,5 +1,6 @@
 "use client"
 
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 import {
   Table,
   TableBody,
@@ -38,12 +39,15 @@ export default function AvailabilityTable({
       {/* Image */}
       {imageSrc && (
         <div className="relative w-full h-[300px] rounded-lg overflow-hidden">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover"
-          />
+        <AspectRatio ratio={16 / 9} className="bg-white rounded-lg overflow-hidden">
+         <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          className="object-contain"
+          sizes="(max-width: 768px) 100vw, 50vw"
+         />
+        </AspectRatio>
         </div>
       )}
 

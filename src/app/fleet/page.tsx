@@ -68,58 +68,49 @@ export const availabilityData4 = [
 
 export default function Page() {
     return ( 
-        <div className="bg-white">
-<div className="max-w-7xl mx-auto px-6 bg-white p-6">
-  {/* Heading */}
+      <div>
+       <div className="bg-white">
+
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12">
   <h2 className="text-center text-4xl font-bold text-gray-700">
     Our Fleet
   </h2>
 
-  {/* Divider */}
   <div className="flex items-center justify-center gap-4 mt-4 mb-12">
     <span className="h-px w-24 bg-gray-300" />
     <span className="text-red-800 text-xl">♡</span>
     <span className="h-px w-24 bg-gray-300" />
   </div>
 
-</div>
-
-<div className="p-28">
-
+  <div className="space-y-20">
     <AvailabilityTable
       data={availabilityData3}
       imageSrc="/images/innova-crysta.webp"
-      imageAlt="Bus"
+      imageAlt="Innova Crysta"
     />
 
-</div>
-
-<div className="p-28">
     <AvailabilityTable
       data={availabilityData}
       imageSrc="/images/RUMION.jpg"
-      imageAlt="Bus"
+      imageAlt="Toyota Rumion"
     />
 
-</div>
-
-<div className="p-28">
     <AvailabilityTable
       data={availabilityData}
       imageSrc="/images/Kia-Carens.webp"
-      imageAlt="Bus"
+      imageAlt="Kia Carens"
     />
 
-</div>
-<div className="p-28">
     <AvailabilityTable
       data={availabilityData}
       imageSrc="/images/Dzire.webp"
-      imageAlt="Bus"
+      imageAlt="Swift Dzire"
     />
-
+  </div>
 </div>
 
 </div>
+
+      </div>
 )
 }
