@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, ChevronDown, MapPin, Plane, ArrowRight } from "lucide-react";
+import { Phone, ChevronDown, MapPin, Plane, ArrowRight, PhoneCall } from "lucide-react";
 import { useEnquiry } from "@/context/EnquiryContext";
 import { Button } from "@/components/ui/button";
 import MobileSidebar from "@/common/MobileSidebar";
@@ -61,11 +61,11 @@ export default function Navbar() {
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-800">
           <Link href="/" className="flex items-center gap-1 cursor-pointer hover:text-green-700">
-            👥 Home <ChevronDown size={14} />
+            👥 Home
           </Link>
 
           <Link href="/fleet" className="flex items-center gap-1 cursor-pointer hover:text-green-700">
-            🏷 Fleet <ChevronDown size={14} />
+            🏷 Fleet 
           </Link>
 
           <Link href="/UpcomingPackage" className="hover:text-green-700">
@@ -73,15 +73,15 @@ export default function Navbar() {
           </Link>
 
           <Link href="/services" className="flex items-center gap-1 cursor-pointer hover:text-green-700">
-            🌍 Customised Trips <ChevronDown size={14} />
+             Customised Trips 
           </Link>
 
           <Link href="/about" className="flex items-center gap-1 cursor-pointer hover:text-green-700">
-            ℹ️ More about us <ChevronDown size={14} />
+             More about us 
           </Link>
 
           <Link href="/contact" className="flex items-center gap-1 cursor-pointer hover:text-green-700">
-            ℹ️ Contact us <ChevronDown size={14} />
+            <PhoneCall size={14} color="blue" fill="blue"/> Contact us 
           </Link>
 
         </div>
