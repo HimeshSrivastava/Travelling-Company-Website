@@ -28,8 +28,6 @@ export default function ContactPage() {
   </div>
 
 </div>
-
-        {/* Subtitle */}
         <p className="text-center max-w-4xl mx-auto text-gray-700 mb-14">
           Get in touch with Chetan Tour and Travel for personalized travel
           experiences. Our team of travel experts is ready to provide you with
@@ -37,9 +35,8 @@ export default function ContactPage() {
           vacation or seeking recommendations, we’re just a message away.
         </p>
 
-        {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start pt-8">
-          {/* LEFT FORM */}
+       
           <div className="space-y-6">
             <Input
               type="text"
@@ -59,18 +56,18 @@ export default function ContactPage() {
               className="w-full p-4 text-black rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400"
             />
 
-<Select>
-      <SelectTrigger className="w-full p-4">
+       <Select>
+        <SelectTrigger className="w-full p-4">
         <SelectValue placeholder="Choose Services" />
-      </SelectTrigger>
+        </SelectTrigger>
 
-      <SelectContent>
+        <SelectContent>
         <SelectItem value="tour">Tour Packages</SelectItem>
         <SelectItem value="cab">Cab Services</SelectItem>
         <SelectItem value="corporate">Corporate Travel</SelectItem>
         <SelectItem value="hotel">Hotel Booking</SelectItem>
-      </SelectContent>
-    </Select>
+        </SelectContent>
+       </Select>
 
             <Textarea
               rows={5}
