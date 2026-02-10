@@ -80,7 +80,6 @@ export default function EnquiryModal() {
         setForm({ name: "", email: "", contact: "", message: "" });
       } else {
         alert("Message sent successfully!");
-        closeEnquiry();
         setForm({ name: "", email: "", contact: "", message: "" });
       }
     } catch (error) {
