@@ -1,11 +1,14 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { useEnquiry } from "@/context/EnquiryContext";
 import { Facebook, Mail, Twitter } from "lucide-react";
 
 export default function ContactPage() {
-  // const{ openEnquiry }=useEnquiry();
+  const{ openEnquiry }=useEnquiry();
   return (
     <>
     <section className="bg-[#f2f2f0] py-20">
@@ -37,7 +40,7 @@ export default function ContactPage() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start pt-8">
           {/* LEFT FORM */}
-          <form className="space-y-6">
+          <div className="space-y-6">
             <Input
               type="text"
               placeholder="Enter your name"
@@ -69,23 +72,25 @@ export default function ContactPage() {
       </SelectContent>
     </Select>
 
-            <textarea
+            <Textarea
               rows={5}
               placeholder="Write Your Message Here"
               className="w-full p-4 text-black rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400"
             />
 
-            <button
+            <Button
               type="submit"
+              onClick={openEnquiry}
               className="bg-black text-white px-10 py-3 rounded-md hover:bg-gray-800 transition"
             >
               Send Message
-            </button>
-          </form>
+            </Button>
+          </div>
 
           {/* RIGHT MAP */}
           <div className="w-full h-[450px] rounded-md overflow-hidden border">
             <iframe
+              title="map"
               src="https://www.google.com/maps?q=Chetan%20Trip%20Solution%20Pvt.%20Ltd%20Noida&output=embed"
               className="w-full h-full border-0"
               loading="lazy"
@@ -143,21 +148,21 @@ export default function ContactPage() {
         For any Queries or Feedback !
       </h3>
 
-      <form className="space-y-10">
+      <div className="space-y-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <input
+          <Input
             type="text"
             placeholder="Name"
             className="contact-input text-black"
           />
-          <input
+          <Input
             type="email"
             placeholder="Email"
             className="contact-input text-black"
           />
         </div>
 
-        <textarea
+        <Textarea
           placeholder="Message"
           rows={4}
           className="contact-input resize-none text-black"
@@ -165,12 +170,12 @@ export default function ContactPage() {
 
         <div className="flex items-center gap-4 text-gray-700 cursor-pointer w-fit">
           <Mail size={22} />
-          {/* <Button
-            onClick={openEnquiry} > */}
-          <span className="font-medium">Send message</span>
-          {/* </Button> */}
+         <Button
+           onClick={openEnquiry} > 
+          Send message
+          </Button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 

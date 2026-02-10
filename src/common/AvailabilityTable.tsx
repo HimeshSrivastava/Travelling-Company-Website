@@ -1,6 +1,7 @@
 "use client"
 
 import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Button } from "@/components/ui/button"
 import {
   Table,
   TableBody,
@@ -9,16 +10,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { useEnquiry } from "@/context/EnquiryContext"
 import Image from "next/image"
 
 interface AvailabilityItem {
-  serial: number
-  seats: string
-  fourHr: string
-  eightHr: string
-  twelveHr: string
-  kmCharge: string
-  extraHour: string
+  serial: string
+  kmHr: string
+  pricingHr: string
 }
 
 interface AvailabilityTableProps {
@@ -34,6 +32,7 @@ export default function AvailabilityTable({
   imageAlt = "vehicle",
   data,
 }: AvailabilityTableProps) {
+  const{ openEnquiry }=useEnquiry();
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start bg-white">
       {/* Image */}
@@ -56,51 +55,48 @@ export default function AvailabilityTable({
         <div className="bg-black text-white text-center py-3 font-semibold">
           {title}
         </div>
-
+        <div className="grid grid-cols-[80%_20%]">
+        <div>
+        <div className="grid grid-cols-2 border-b">
+        <div className="p-3 font-semibold border-r text-gray-800 text-center">Seat</div>
+        <div className="p-3 font-semibold text-center text-gray-800">7–8 Person</div>
+      </div>
+     
         <Table className="text-black">
           {/* ✅ HEADER */}
           <TableHeader>
-            <TableRow>
-              <TableHead className="text-center border text-black">Serial No.</TableHead>
-              <TableHead className="text-center border text-black">Occupied Seat</TableHead>
-              <TableHead className="text-center border text-black">4 Hrs / 40 Kms</TableHead>
-              <TableHead className="text-center border text-black">8 Hrs / 80 Kms</TableHead>
-              <TableHead className="text-center border text-black">12 Hrs / 180 Kms</TableHead>
-              <TableHead className="text-center border text-black">Kms charges</TableHead>
-              <TableHead className="text-center border text-black">Extra Hours Charge</TableHead>
-            </TableRow>
+          <TableRow>
+            <TableHead className="border-r text-center text-gray-800">Serial No.</TableHead>
+            <TableHead className="border-r text-center text-gray-800">Hour / Distance</TableHead>
+            <TableHead className="text-center text-gray-800">Price</TableHead>
+          </TableRow>
           </TableHeader>
 
           {/* ✅ BODY */}
           <TableBody>
             {data.map((item) => (
-              <TableRow key={item.serial} className="bg-gray-100">
+              <TableRow key={item.pricingHr} className="bg-gray-100">
                 <TableCell className="text-center border">
                   {item.serial}
                 </TableCell>
                 <TableCell className="text-center border">
-                  {item.seats}
+                  {item.kmHr}
                 </TableCell>
                 <TableCell className="text-center border">
-                  {item.fourHr}
-                </TableCell>
-                <TableCell className="text-center border">
-                  {item.eightHr}
-                </TableCell>
-                <TableCell className="text-center border">
-                  {item.twelveHr}
-                </TableCell>
-                <TableCell className="text-center border">
-                  {item.kmCharge}
-                </TableCell>
-                <TableCell className="text-center border">
-                  {item.extraHour}
+                  {item.pricingHr}
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
+        </div>
+        <div className="flex items-center justify-center">
+          <Button size="lg" onClick={openEnquiry}>
+            Book
+            </Button>
+        </div>
       </div>
+    </div>
     </div>
   )
 }

@@ -1,69 +1,36 @@
 import AvailabilityTable from "@/common/AvailabilityTable";
-// import Image from "next/image";
 
-export const availabilityData = [
-  {
-    serial: 1,
-    model: "Toyota Rumion",
-    seats: "7 Seater",
-    fourHr: "1200",
-    eightHr: "2000",
-    twelveHr: "3000",
-    kmCharge: "13/km",
-    extraHour: "100/hr",
-  },
-]
 
 export const availabilityData1 = [
-  {
-    serial: 1,
-    model: "Toyota Rumion",
-    seats: "7 Seater",
-    fourHr: "1200",
-    eightHr: "2000",
-    twelveHr: "3000",
-    kmCharge: "13/km",
-    extraHour: "100/hr",
-  },
+  {serial:"1",kmHr: "4 Hrs / 40 Kms", pricingHr: "1200"},
+  {serial:"2",kmHr: "8 Hrs / 80 Kms", pricingHr: "2000"},
+  {serial:"3",kmHr: "12 Hrs / 120 Kms", pricingHr: "3000"},
+  {serial:"4",kmHr: "kmCharge", pricingHr: "13/km"},
+  {serial:"5",kmHr: "extraHour", pricingHr: "100/hr"},
 ]
 
 export const availabilityData2 = [
-  {
-    serial: 1,
-    model: "Kia Carens",
-    seats: "7 Seater",
-    fourHr: "1500",
-    eightHr: "2200",
-    twelveHr: "4800",
-    kmCharge: "16/km",
-    extraHour: "150/hr",
-  },
+  {serial:"1",kmHr: "4 Hrs / 40 Kms", pricingHr: "1500"},
+  {serial:"2",kmHr: "8 Hrs / 80 Kms", pricingHr: "2200"},
+  {serial:"3",kmHr: "12 Hrs / 120 Kms", pricingHr: "4800"},
+  {serial:"4",kmHr: "kmCharge", pricingHr: "16/km"},
+  {serial:"5",kmHr: "extraHour", pricingHr: "150/hr"},
 ]
 
 export const availabilityData3 = [
-  {
-    serial: 1,
-    model: "Innova Crysta",
-    seats: "8 Seater",
-    fourHr: "NIL",
-    eightHr: "3000",
-    twelveHr: "5000",
-    kmCharge: "20/km",
-    extraHour: "200/hr",
-  },
+  {serial:"1",kmHr: "4 Hrs / 40 Kms", pricingHr: "NIL"},
+  {serial:"2",kmHr: "8 Hrs / 80 Kms", pricingHr: "3000"},
+  {serial:"3",kmHr: "12 Hrs / 120 Kms", pricingHr: "5000"},
+  {serial:"4",kmHr: "kmCharge", pricingHr: "20/km"},
+  {serial:"5",kmHr: "extraHour", pricingHr: "200/hr"},
 ]
 
 export const availabilityData4 = [
-  {
-    serial: 1,
-    model: "Tempo Traveller",
-    seats: "6 Seater",
-    fourHr: "NIL",
-    eightHr: "2500",
-    twelveHr: "4500",
-    kmCharge: "18/km",
-    extraHour: "150/hr",
-  },
+  {serial:"1",kmHr: "4 Hrs / 40 Kms", pricingHr: "NIL"},
+  {serial:"2",kmHr: "8 Hrs / 80 Kms", pricingHr: "2500"},
+  {serial:"3",kmHr: "12 Hrs / 120 Kms", pricingHr: "4500"},
+  {serial:"4",kmHr: "kmCharge", pricingHr: "18/km"},
+  {serial:"5",kmHr: "extraHour", pricingHr: "150/hr"},
 ]
 
 export default function Page() {
@@ -84,25 +51,25 @@ export default function Page() {
 
   <div className="space-y-20">
     <AvailabilityTable
-      data={availabilityData3}
+      data={availabilityData1}
       imageSrc="/images/innova-crysta.webp"
       imageAlt="Innova Crysta"
     />
 
     <AvailabilityTable
-      data={availabilityData}
+      data={availabilityData2}
       imageSrc="/images/RUMION.jpg"
       imageAlt="Toyota Rumion"
     />
 
     <AvailabilityTable
-      data={availabilityData}
+      data={availabilityData3}
       imageSrc="/images/Kia-Carens.webp"
       imageAlt="Kia Carens"
     />
 
     <AvailabilityTable
-      data={availabilityData}
+      data={availabilityData4}
       imageSrc="/images/Dzire.webp"
       imageAlt="Swift Dzire"
     />
